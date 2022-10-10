@@ -1,0 +1,107 @@
+<div class="container-fluid g-0">
+  <!---Header--->
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Ordered Books</span>
+    </div>
+  </nav>
+  <!--Main content-->
+  <main class="">
+    <!--Tool bar to ADD and Search Books-->
+  <div class="toolbar" >
+    
+    <div class="search-books">
+      <input type="search" class="form-control" placeholder="Search Books"
+      (input)="SearchBooks(searchInput.value)" #searchInput>
+    </div>
+
+  </div>
+  <!--Area to display all the books-->
+  <div class="Booklist">
+    <div class="row mt-5" *ngIf="OrderdataModels.length == 0">
+      <div class="col text-center">
+        <span class="text-secondary fs-2 fw-bold fst-italic">There are No Books Ordered!</span>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngFor="let order of OrderdataModels; let ei=index;">
+      <div class="col">
+        <app-bookorderlist [Orderlist]="order" (onCancelBook)="CancelBook($event)" (onDownloadBook)="DownloadInvoice($event)" ></app-bookorderlist>
+      </div>
+
+
+    </div> 
+
+  </div>
+</main>
+</div>
+<!-- Button trigger modal -->
+<button type="button" id="btncancel" style="display: none;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  Cancel Confirm
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{Errormsg}}
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Button trigger modal -->
+<button type="button" style="display: none;" id="btndownload" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal Invoice-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{OrderdataModel.invoiceNo}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title text-uppercase mb-5" id="exampleModalLabel">{{OrderdataModel.paymentName}}</h5>
+        <h4 class="mb-5" style="color: #35558a;">Thanks for your order</h4>
+        <p class="mb-0" style="color: #35558a;">Payment summary</p>
+        <hr class="mt-2 mb-4"
+          style="height: 0; background-color: transparent; opacity: .75; border-top: 2px dashed #9e9e9e;">
+
+        <div class="d-flex justify-content-between">
+          <p class="fw-bold mb-0">{{OrderdataModel.bookTitle}}</p>
+          <p class="text-muted mb-0">{{OrderdataModel.bookPrice}}</p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p class="small mb-0">Payment Date</p>
+          <p class="small mb-0">{{OrderdataModel.paymentDate}}</p>
+        </div>
+
+        <div class="d-flex justify-content-between pb-1">
+          <p class="small">Status</p>
+          <p class="small">{{OrderdataModel.cancelOrder==true?'Canceled':'Paymen Successful'}}</p>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <p class="fw-bold">Total</p>
+          <p class="fw-bold" style="color: #35558a;">{{OrderdataModel.bookPrice}}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!--<button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+

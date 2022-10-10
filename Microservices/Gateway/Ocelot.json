@@ -1,0 +1,109 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/User/login-user",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/User/login",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/User/register-user",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/User/register",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Get-Books-All",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/GetBookAll",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Get-Books",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/GetBooks",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Get-Books-Pay",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/GetBooksPay",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Get-Books-Order",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/GetBooksOrder",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Book-Add",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/BookAdd",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Upload",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/Upload",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Book-Edit",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/BookEdit",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Book/Book-Delete",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Book/BookDelete",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Payment",
+      "DownstreamScheme": "https",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/Payment",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/Cancel/Book-Cancel",
+      "DownstreamScheme": "https",
+      "ServiceName": "readerService",
+      "UpstreamPathTemplate": "/api/gateway/Cancel/BookCancel",
+      "UpstreamHttpMethod": [ "Post" ]
+    }
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:44308",
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}

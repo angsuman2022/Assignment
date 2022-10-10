@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/book.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      Book App
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['home']" *ngIf="LoggedIn(false) || LoggedRedIn()">Home</a>
+        </li>       
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['bookadd/add']" *ngIf="LoggedAuthIn()">BookAdd</a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['bookread/add']" *ngIf="LoggedRedIn()">BookList</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['bookorder/add']" *ngIf="LoggedRedIn()">Order</a>
+        </li>  
+       
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <a class="nav-link" [routerLink]="['login']" *ngIf="LoggedIn(false)"><img src="../../assets/login.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">Login</a>
+        <a class="nav-link" [routerLink]="['signup']" *ngIf="LoggedIn(false)"><img src="../../assets/address-book.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">Register</a>
+        <a class="nav-link" [routerLink]="['login']" *ngIf="LoggedIn(true)" (click)="Logout()"><img src="../../assets/logout.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">Logout</a>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+  </div>
+ 

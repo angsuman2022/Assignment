@@ -1,0 +1,58 @@
+<div class="container-fluid g-0">
+    <!---Header--->
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">List of Books</span>
+      </div>
+    </nav>
+    <!--Main content-->
+    <main class="">
+      <!--Tool bar to ADD and Search Books-->
+    <div class="toolbar" >
+      <div class="add-books">
+        <button style="display: none;" type="button" id="AddBookDet" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Books</button>
+      </div>
+      <div class="search-books">
+       <input type="search" class="form-control" placeholder="Search Books"
+        (input)="SearchBooks(searchInput.value)" #searchInput> 
+      </div>
+  
+    </div>
+    <!--Area to display all the books-->
+    <div class="Booklist">
+        <div class="row mt-5" *ngIf="BookdataModels.length == 0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold fst-italic">You have not buyed any book!</span>
+        </div>
+      </div>
+
+    <div class="row mt-4" *ngFor="let book of BookdataModels; let ei=index;">
+        <div class="col">
+          <app-bookpaylist [Booklist]="book" (onReadBook)="ReadBook($event)"></app-bookpaylist> 
+        </div>
+      </div> 
+  
+    </div>
+  </main>
+  </div>
+
+  <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Book content</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{BookdataModel.bookContent}}
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  

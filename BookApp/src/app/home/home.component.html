@@ -1,0 +1,120 @@
+<div class="container-fluid g-0">
+  <!---Header--->
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Search for your fevorite Books</span>
+    </div>
+  </nav>
+  <!--Main content-->
+  <main class="">
+    <!--Tool bar to ADD and Search Books-->
+  <div class="toolbar" >
+    <div class="add-books">
+     <!--<button type="button" id="AddBookDet" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Books</button>--> 
+    </div>
+    <div class="search-books">
+      <input type="search" class="form-control" placeholder="Search Books"
+      (input)="SearchBooks(searchInput.value)" #searchInput>
+    </div>
+
+  </div>
+  <!--Area to display all the books-->
+  <div class="Booklist">
+    <div class="row mt-5" *ngIf="BookdataModels.length == 0">
+      <div class="col text-center">
+        <span class="text-secondary fs-2 fw-bold fst-italic">There are No Books Added!</span>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngFor="let book of BookdataModels; let ei=index;">
+      <div class="col">
+        <app-booksearchlist [Booklist]="book" (onPaymentBook)="PaymentBook($event)"></app-booksearchlist>
+      </div>
+
+
+    </div> 
+
+  </div>
+</main>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" id="btnPayment" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"style="display: none;" >
+  Payment
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Make Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container p-0">
+          <div class="card px-4">
+              <p class="h8 py-3">Payment Details</p>
+              <div class="row gx-3">
+                  <div class="col-12">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">Person Name</p>
+                          <input class="form-control mb-3" [(ngModel)]="PaymentdataModel.paymentName" [ngModelOptions]="{standalone: true}" type="text" placeholder="Name" value="Barry Allen">
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">Card Number</p>
+                          <input class="form-control mb-3" type="text" [(ngModel)]="PaymentdataModel.paymentCard" [ngModelOptions]="{standalone: true}" placeholder="1234 5678 435678">
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">Expiry</p>
+                          <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="d-flex flex-column">
+                          <p class="text mb-1">CVV/CVC</p>
+                          <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="btn btn-primary mb-3">
+                          <span class="ps-3">Pay {{BookdataModel.bookPrice}}</span>
+                          <span class="fas fa-arrow-right"></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer"> 
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="BookPayment()">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" id="btnpaymentcon" style="display: none;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  Cancel Confirm
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{Errormsg}}
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>

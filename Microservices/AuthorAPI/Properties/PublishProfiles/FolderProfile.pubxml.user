@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\cogdotnet1701\Desktop\Publish\AuthorAPI</_PublishTargetUrl>
+    <History>True|2022-10-10T05:08:03.5050571Z;True|2022-10-10T09:57:28.1502920+05:30;True|2022-10-10T02:03:47.3130752+05:30;True|2022-10-10T00:00:42.9654103+05:30;True|2022-10-09T23:27:38.2745401+05:30;True|2022-10-09T22:07:29.3103636+05:30;</History>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,77 @@
+<div class="container-fluid g-0 p2">
+    <div class="row g-0">
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <img src="https://bookappimages.blob.core.windows.net/images/{{Booklist.bookImg}}" height="200px" width="150px" alt="Profile Image" class="Profile">
+        </div>
+        <div class="col ps-2">
+            <div class="row g-0">
+                <div class="col-md-9 text-center">
+                    <span class="title">{{Booklist.bookTitle | titlecase}}</span>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center align-items-center">
+                   <button class="btn-group" role="group" style="border: none;"> 
+                       <button type="button" class="btn btn-outline-success"
+                      (click)="ReadBooksClicked()" >Read</button>                     
+                   </button>
+
+                </div>
+
+            </div>
+            <div class="row g-0 mt-3">
+                <div class="col-md">
+                    <table class="table table-hover mx-auto">
+                        <thead class="text-center fs-5 fst-italic text-secondary">
+                            <tr>
+                                <td colspan="2">Book Details</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>{{Booklist.bookCategory}}</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>{{Booklist.bookPrice}}</td>
+                            </tr>
+                            <tr>
+                                <td>Active</td>
+                                <td>{{Booklist.active == true? 'Active': 'Inactive'}}</td>
+                            </tr>
+
+                        </tbody>
+
+                        
+                    </table>
+
+                </div>
+                <div class="col">
+                    <table class="table table-hover mx-auto">
+                        <thead class="text-center fs-5 fst-italic text-secondary">
+                            <tr>
+                                <td colspan="2">Publish Details</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Publisher</td>
+                                <td>{{Booklist.bookPublish}}</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>PublishDate</td>
+                                <td>{{Booklist.publishDate}}</td>
+                            </tr>
+
+                        </tbody>
+
+                        
+                    </table>
+                    
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

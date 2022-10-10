@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+     <div class="col-md-6">
+  <div class="card">
+    <div class="text-center">
+      <h1>Sign Up</h1>
+      <h6>Register Yourself !!</h6>
+    </div>
+    
+      <form [formGroup]="UserdataModel.formUserGroup">
+        <div class="mb-3">
+            <label for="exampleInputFullName" class="form-label">Full name</label>
+            <input type="text" [(ngModel)]="UserdataModel.fullName" formControlName="FullNameControl"  class="form-control" >
+            <p style="color: red;" [hidden]="!(hasError('required','FullNameControl'))">Full Name is required</p>
+
+          </div>        
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" [(ngModel)]="UserdataModel.email" formControlName="EmailControl" class="form-control" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <p style="color: red;" [hidden]="!(hasError('required','EmailControl'))">Email is required</p>
+          <p style="color: red;" [hidden]="!(hasError('pattern','EmailControl'))">Email should be proper format</p>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPhone" class="form-label">Phone number</label>
+          <input type="text" [(ngModel)]="UserdataModel.phone" formControlName="PhoneControl" class="form-control" >
+          <p style="color: red;" [hidden]="!(hasError('required','PhoneControl'))">Phone is required</p>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" [(ngModel)]="UserdataModel.password" formControlName="PasswordControl" class="form-control" >
+          <p style="color: red;" [hidden]="!(hasError('required','PasswordControl'))">Password is required</p>
+        </div>
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Type</label>
+          <select class="form-select" [(ngModel)]="UserdataModel.type" formControlName="typeControl" >
+            <!--<option selected>Choose...</option> -->
+            <option value="1">Author</option>
+            <option value="2">Reader</option>
+          </select>
+          <p style="color: red;" [hidden]="!(hasError('required','typeControl'))">Type is required</p>
+        </div>
+        <button type="button" [disabled]="(UserdataModel.formUserGroup.invalid)" (click)="registerUser()" class="btn" style="color: beige;background-color: black;">Submit</button>
+      </form>
+    
+  </div>
+     </div>
+    </div>
+  </div>

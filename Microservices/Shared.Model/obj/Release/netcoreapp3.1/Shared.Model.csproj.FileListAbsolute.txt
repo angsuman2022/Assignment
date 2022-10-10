@@ -1,0 +1,10 @@
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\bin\Release\netcoreapp3.1\Shared.Model.deps.json
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\bin\Release\netcoreapp3.1\Shared.Model.dll
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\bin\Release\netcoreapp3.1\Shared.Model.pdb
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.csproj.AssemblyReference.cache
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.AssemblyInfoInputs.cache
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.AssemblyInfo.cs
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.dll
+C:\Users\cogdotnet1701\Desktop\Angular-Lab\Assignment\Microservices\Shared.Model\obj\Release\netcoreapp3.1\Shared.Model.pdb

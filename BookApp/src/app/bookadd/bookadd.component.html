@@ -1,0 +1,100 @@
+<div class="container-fluid g-0">
+    <!---Header--->
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Create Books</span>
+      </div>
+    </nav>
+    <!--Main content-->
+    <main class="">
+      <!--Tool bar to ADD and Search Books-->
+    <div class="toolbar" >
+      <div class="add-books">
+        <button type="button" id="AddBookDet" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Books</button>
+      </div>
+      <div class="search-books">
+        <input type="search" class="form-control" placeholder="Search Books"
+        (input)="SearchBooks(searchInput.value)" #searchInput>
+      </div>
+  
+    </div>
+    <!--Area to display all the books-->
+    <div class="Booklist">
+      <div class="row mt-5" *ngIf="BookdataModels.length == 0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold fst-italic">There are No Books Added!</span>
+        </div>
+      </div>
+
+      <div class="row mt-4" *ngFor="let book of BookdataModels; let ei=index;">
+        <div class="col">
+          <app-booklist [Booklist]="book" (onRemoveBook)="removeBook($event)" (onEditBook)="editBook($event)"></app-booklist>
+        </div>
+
+
+      </div> 
+  
+    </div>
+  </main>
+  </div>
+  
+  <!-- Button trigger modal -->
+  <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Book Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputTitle" class="form-label">Title</label>
+              <input type="text" [(ngModel)]="BookdataModel.bookTitle" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputTitle">    
+              
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputCategory" class="form-label">Category</label>
+              <input type="text" [(ngModel)]="BookdataModel.bookCategory" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputCategory">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputImage" class="form-label">Image</label>
+              <input type="file" class="form-control" id="exampleInputImage" #file (change)="uploadFile(file.files)" style="display: none;">
+              <button class="btn btn-primary" (click)="file.click()" >Upload</button>
+            </div> 
+            <div class="mb-3">
+              <label for="exampleInputPrice" class="form-label">Price</label>
+              <input type="number" [(ngModel)]="BookdataModel.bookPrice" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputPrice">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPunlishers" class="form-label">Publishers</label>
+              <input type="text" [(ngModel)]="BookdataModel.bookPublish" [ngModelOptions]="{standalone: true}"  class="form-control" id="exampleInputPublishers">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPunlishdate" class="form-label">Publish Date</label>
+              <input type="date" [(ngModel)]="BookdataModel.publishDate" [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputPublishers">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" [(ngModel)]="BookdataModel.active" [ngModelOptions]="{standalone: true}" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Active</label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                <textarea class="form-control" [(ngModel)]="BookdataModel.bookContent" [ngModelOptions]="{standalone: true}" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+  
+  
+          </form>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="BookAdd()">Insert</button>
+        </div>
+      </div>
+    </div>
+  </div>
